@@ -1,0 +1,25 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/index.js"
+    }
+  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "builds": [
+    {
+      "src": "packages/*/package.json",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "apps/user-app/package.json",
+      "use": "@vercel/next"
+    },
+    {
+      "src": "apps/bank-webhook/index.js",
+      "use": "@vercel/node"
+    }
+  ]
+}
